@@ -6,14 +6,14 @@ const descriptionItems = [
   `Пройти интенсив на соточку`,
 ];
 
-const DefaultRepeatingDays = {
-  "mo": false,
-  "tu": false,
-  "we": false,
-  "th": false,
-  "fr": false,
-  "sa": false,
-  "su": false,
+const defaultRepeatingDays = {
+  mo: false,
+  tu: false,
+  we: false,
+  th: false,
+  fr: false,
+  sa: false,
+  su: false,
 };
 
 
@@ -38,8 +38,8 @@ const getRandomDate = () => {
 };
 
 const generateRepeatingDays = () => {
-  return Object.assign({}, DefaultRepeatingDays, {
-    "mo": Math.random() > 0.5,
+  return Object.assign({}, defaultRepeatingDays, {
+    mo: Math.random() > 0.5,
   });
 };
 
@@ -49,7 +49,7 @@ const generateTask = () => {
   return {
     description: getRandomArrayItem(descriptionItems),
     dueDate,
-    repeatingDays: dueDate ? DefaultRepeatingDays : generateRepeatingDays(),
+    repeatingDays: dueDate ? defaultRepeatingDays : generateRepeatingDays(),
     color: getRandomArrayItem(COLORS),
     isArchive: Math.random() > 0.5,
     isFavorite: Math.random() > 0.5,
