@@ -26,7 +26,6 @@ const renderTask = (taskListElement, task) => {
 
   const onEscKeyDown = (evt) => {
     const isEscKey = evt.key === `Escape` || evt.key === `Esc`;
-
     if (isEscKey) {
       replaceEditToTask();
       document.removeEventListener(`keydown`, onEscKeyDown);
@@ -52,7 +51,6 @@ const renderTask = (taskListElement, task) => {
 
 const renderBoard = (boardComponent, tasks) => {
   const isAllTasksArchived = tasks.every((task) => task.isArchive);
-
   if (isAllTasksArchived) {
     render(boardComponent.getElement(), new NoTasksComponent().getElement(), RenderPosition.BEFOREEND);
     return;
