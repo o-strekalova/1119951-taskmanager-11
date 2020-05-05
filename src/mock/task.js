@@ -16,7 +16,6 @@ const defaultRepeatingDays = {
   su: false,
 };
 
-
 const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
 
@@ -61,6 +60,5 @@ const generateTasks = (count) => {
     .fill(``)
     .map(generateTask);
 };
-
 
 export {generateTask, generateTasks};
