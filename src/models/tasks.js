@@ -72,4 +72,10 @@ export default class Tasks {
   _callHandlers(handlers) {
     handlers.forEach((handler) => handler());
   }
+
+  resetFilter() {
+    this.setFilter(FilterType.ALL);
+    const defaultFilter = document.querySelector(`#filter__all`);
+    defaultFilter.checked = true;
+  }
 }

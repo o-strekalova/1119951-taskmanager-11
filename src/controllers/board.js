@@ -90,6 +90,9 @@ export default class BoardController {
 
     const taskListElement = this._tasksComponent.getElement();
     this._creatingTask = new TaskController(taskListElement, this._onDataChange, this._onViewChange);
+    this._showedTaskControllers.forEach((it) => it.setDefaultView());
+    this._tasksModel.resetFilter();
+
     this._creatingTask.render(EmptyTask, TaskControllerMode.ADDING);
   }
 
