@@ -47,4 +47,8 @@ export default class Filter extends AbstractComponent {
       handler(filterName);
     });
   }
+
+  resetFilter() {
+    this.getElement().querySelector(`#filter__all`).checked = true;
+  }
 }

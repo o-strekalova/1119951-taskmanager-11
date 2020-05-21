@@ -8,6 +8,7 @@ export default class Tasks {
 
     this._dataChangeHandlers = [];
     this._filterChangeHandlers = [];
+    this._resetHandlers = [];
   }
 
   getTasks() {
@@ -36,7 +37,6 @@ export default class Tasks {
     }
 
     this._tasks = [].concat(this._tasks.slice(0, index), this._tasks.slice(index + 1));
-
     this._callHandlers(this._dataChangeHandlers);
 
     return true;
@@ -50,7 +50,6 @@ export default class Tasks {
     }
 
     this._tasks = [].concat(this._tasks.slice(0, index), task, this._tasks.slice(index + 1));
-
     this._callHandlers(this._dataChangeHandlers);
 
     return true;
@@ -69,13 +68,16 @@ export default class Tasks {
     this._dataChangeHandlers.push(handler);
   }
 
+  setResetHandlers(handler) {
+    this._resetHandlers.push(handler);
+  }
+
   _callHandlers(handlers) {
     handlers.forEach((handler) => handler());
   }
 
   resetFilter() {
     this.setFilter(FilterType.ALL);
-    const defaultFilter = document.querySelector(`#filter__all`);
-    defaultFilter.checked = true;
+    this._callHandlers(this._resetHandlers);
   }
 }

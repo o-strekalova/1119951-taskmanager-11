@@ -13,8 +13,10 @@ export default class FilterController {
 
     this._onDataChange = this._onDataChange.bind(this);
     this._onFilterChange = this._onFilterChange.bind(this);
+    this._onReset = this._onReset.bind(this);
 
     this._tasksModel.setDataChangeHandler(this._onDataChange);
+    this._tasksModel.setResetHandlers(this._onReset);
   }
 
   render() {
@@ -46,5 +48,9 @@ export default class FilterController {
 
   _onDataChange() {
     this.render();
+  }
+
+  _onReset() {
+    this._filterComponent.resetFilter();
   }
 }
