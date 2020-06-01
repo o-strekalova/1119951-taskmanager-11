@@ -34,7 +34,7 @@ const createColorsMarkup = (colors, currentColor) => {
           ${currentColor === color ? `checked` : ``}
         />
         <label
-          for="color-${color}--${index}"
+          for="color-${color}-${index}"
           class="card__color card__color--${color}"
           >${color}</label
         >`

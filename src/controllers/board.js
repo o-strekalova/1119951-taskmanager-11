@@ -78,8 +78,8 @@ export default class BoardController {
       return;
     }
 
-    render(container, this._tasksComponent, RenderPosition.BEFOREEND);
     render(container, this._sortComponent, RenderPosition.BEFOREEND);
+    render(container, this._tasksComponent, RenderPosition.BEFOREEND);
     this._renderTasks(tasks.slice(0, this._showingTasksCount));
     this._renderLoadMoreButton();
   }
