@@ -1,4 +1,4 @@
-import Task from "./models/task.js";
+import Task from "../models/task.js";
 
 const Method = {
   GET: `GET`,
@@ -51,6 +51,16 @@ const API = class {
     })
       .then((response) => response.json())
       .then(Task.parseTask);
+  }
+
+  sync(data) {
+    return this._load({
+      url: `tasks/sync`,
+      method: Method.POST,
+      body: JSON.stringify(data),
+      headers: new Headers({"Content-Type": `application/json`})
+    })
+      .then((response) => response.json());
   }
 
   _load({url, method = Method.GET, body = null, headers = new Headers()}) {
